@@ -115,7 +115,7 @@ color: rgb(35, 30, 162);</string>
     <string>Label</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="button">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -183,7 +183,7 @@ color: rgb(35, 30, 162);</string>
     </property>
    </item>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="name">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -197,7 +197,7 @@ color: rgb(35, 30, 162);</string>
 </string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_2">
+  <widget class="QTextEdit" name="surname">
    <property name="geometry">
     <rect>
      <x>640</x>

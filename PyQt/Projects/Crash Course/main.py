@@ -9,6 +9,16 @@ class MainWindow(QDialog):
         super(MainWindow, self).__init__()
         loadUi("qtcrashcourse.ui", self)
 
+    # Button
+        self.button.clicked.connect(self.button_clicked)
+
+    def button_clicked(self):
+        output_str = self.name.toPlainText() + " " + self.surname.toPlainText()
+        self.name.setReadOnly(True)
+        self.surname.setReadOnly(True)
+        self.name.setDisabled(True)
+        self.surname.setDisabled(True)
+        print(output_str)
 
 # main
 app = QApplication(sys.argv)
