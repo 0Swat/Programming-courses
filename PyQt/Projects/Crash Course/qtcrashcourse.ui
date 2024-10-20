@@ -98,12 +98,12 @@ color: rgb(35, 30, 162);</string>
     <string>Zawód</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="outputlabel">
    <property name="geometry">
     <rect>
      <x>490</x>
      <y>300</y>
-     <width>181</width>
+     <width>391</width>
      <height>71</height>
     </rect>
    </property>
@@ -162,34 +162,14 @@ color: rgb(35, 30, 162);</string>
    <property name="styleSheet">
     <string notr="true">font-size: 18pt;</string>
    </property>
-   <item>
-    <property name="text">
-     <string>Lekarz</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Policjant</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Strażak</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Informatyk</string>
-    </property>
-   </item>
   </widget>
   <widget class="QTextEdit" name="name">
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>160</y>
+     <y>170</y>
      <width>231</width>
-     <height>51</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
