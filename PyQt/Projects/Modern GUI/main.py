@@ -34,12 +34,17 @@ class LoginScreen(QDialog):
             cur = conn.cursor()
             query = 'SELECT password FROM login_info WHERE username =\'' + email + "\'"
             cur.execute(query)
-            result_pass = cur.fetchone()[0]
-            if result_pass == password:
-                print("Successfully logged in.")
-                self.label_password.setText("")
-            else:
+            if cur.fetchone() is None:
                 self.label_password.setText("Invalid username or password")
+            else:
+                cur.execute(query)
+                result_pass = cur.fetchone()[0]
+                print(result_pass)
+                if result_pass == password:
+                    print("Successfully logged in.")
+                    self.label_password.setText("")
+                else:
+                    self.label_password.setText("Invalid username or password")
 
 
 # main
