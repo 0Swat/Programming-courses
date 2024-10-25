@@ -6,6 +6,12 @@ class Window(QWidget):
     def __init__(self):
         super(Window, self).__init__()
         loadUi('main.ui', self)
+        self.calendarWidget.selectionChanged.connect(self.calendarDateChanged)
+
+    def calendarDateChanged(self):
+        print("Calendar date changed")
+        dateSelected = self.calendarWidget.selectedDate().toPyDate().strftime('%d.%m.%Y')
+        print(dateSelected)
 
 
 if __name__ == '__main__':
