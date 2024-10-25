@@ -22,8 +22,11 @@
      <height>281</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 13pt &quot;Arial&quot;;</string>
+   </property>
   </widget>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QListWidget" name="taskslistWidget">
    <property name="geometry">
     <rect>
      <x>480</x>
