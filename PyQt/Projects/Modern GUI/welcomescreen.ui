@@ -70,7 +70,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;
     <string>Zaloguj się</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="create">
    <property name="geometry">
     <rect>
      <x>410</x>

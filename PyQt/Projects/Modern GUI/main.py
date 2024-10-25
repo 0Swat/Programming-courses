@@ -10,10 +10,16 @@ class WelcomeScreen(QDialog):
         super(WelcomeScreen, self).__init__()
         loadUi('welcomescreen.ui', self)
         self.login.clicked.connect(self.gotologin)
+        self.create.clicked.connect(self.gotocreate)
 
     def gotologin(self):
         loginscreen = LoginScreen()
         widget.addWidget(loginscreen)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def gotocreate(self):
+        createscreen = CreateAccScreen()
+        widget.addWidget(createscreen)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
@@ -46,6 +52,33 @@ class LoginScreen(QDialog):
                 else:
                     self.label_password.setText("Invalid username or password")
 
+class CreateAccScreen(QDialog):
+    def __init__(self):
+        super(CreateAccScreen, self).__init__()
+        loadUi("create.ui", self)
+        self.password_create.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_create_2.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.signup.clicked.connect(self.gotosignup)
+
+    def gotosignup(self):
+        email = self.email_create.text()
+        password = self.password_create.text()
+        password2 = self.password_create_2.text()
+        if email == "" or password == "" or password2 == "":
+            self.label_create.setText("Proszę uzupełnić dane.")
+        elif password != password2:
+            self.label_create.setText("Hasła się nie zgadzają.")
+        else:
+            conn = sqlite3.connect('shop_data.db')
+            cur = conn.cursor()
+            query = 'SELECT username FROM login_info WHERE username =\'' + email + "\'"
+            cur.execute(query)
+            if cur.fetchone() is not None:
+                self.label_create.setText("Podany użytkownik już istnieje")
+            else:
+                cur.execute('INSERT INTO login_info (username, password) VALUES (?, ?)', (email, password))
+                conn.commit()
+                conn.close()
 
 # main
 app = QApplication(sys.argv)
