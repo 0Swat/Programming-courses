@@ -38,13 +38,13 @@ class MainUI(QMainWindow):
         self.textEdit.redo()
 
     def CopyFunction(self):
-        print("Copy")
+        self.textEdit.copy()
 
     def CutFunction(self):
-        print("Cut")
+        self.textEdit.cut()
 
     def PasteFunction(self):
-        print("Paste")
+        self.textEdit.paste()
 
     def DarkModeFunction(self):
         print("Set dark mode")
