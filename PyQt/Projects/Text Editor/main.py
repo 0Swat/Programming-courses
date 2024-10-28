@@ -10,7 +10,7 @@ class MainUI(QMainWindow):
         super(MainUI, self).__init__()
         loadUi('main.ui', self)
 
-        self.actionNew.triggered.connect(self.NewFunction)
+        self.actionNew.triggered.connect(self.NewFileFunction)
         self.actionSave.triggered.connect(self.SaveFunction)
         self.actionSave_as.triggered.connect(self.SaveAsFunction)
         self.actionUndo.triggered.connect(self.UndoFunction)
@@ -22,7 +22,7 @@ class MainUI(QMainWindow):
         self.actionSet_Light_Mode.triggered.connect(self.LightModeFunction)
         self.actionChange_Font_Size.triggered.connect(self.FontSizeFunction)
 
-    def NewFunction(self):
+    def NewFileFunction(self):
         print("New file")
 
     def SaveFunction(self):
@@ -32,10 +32,10 @@ class MainUI(QMainWindow):
         print("Save file as")
 
     def UndoFunction(self):
-        print("Undo")
+        self.textEdit.undo()
 
     def RedoFunction(self):
-        print("Redo")
+        self.textEdit.redo()
 
     def CopyFunction(self):
         print("Copy")
