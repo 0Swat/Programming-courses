@@ -23,7 +23,8 @@ class MainUI(QMainWindow):
         self.actionPaste.triggered.connect(self.PasteFunction)
         self.actionSet_Dark_Mode.triggered.connect(self.DarkModeFunction)
         self.actionSet_Light_Mode.triggered.connect(self.LightModeFunction)
-        self.actionChange_Font_Size.triggered.connect(self.FontSizeFunction)
+        self.actionIncrease_Font_Size.triggered.connect(self.IncreaseFontSizeFunction)
+        self.actionDecrease_Font_Size.triggered.connect(self.DecreaseFontSizeFunction)
 
     def NewFileFunction(self):
         self.textEdit.clear()
@@ -73,13 +74,30 @@ class MainUI(QMainWindow):
         self.textEdit.paste()
 
     def DarkModeFunction(self):
-        print("Set dark mode")
+        dark_style = '''
+                QWidget{
+                background-color: rgb(33, 33, 33);
+                color: white;
+                }
+                
+                QTextEdit{
+                background-color: rgb(46, 46, 46)
+                }
+                
+                QMenuBar::item:selected{
+                color: black;
+                }   
+        '''
+        self.setStyleSheet(dark_style)
 
     def LightModeFunction(self):
-        print("Set light mode")
+        self.setStyleSheet("")
 
-    def FontSizeFunction(self):
-        print("Change font size")
+    def IncreaseFontSizeFunction(self):
+        print("Change font size plus")
+
+    def DecreaseFontSizeFunction(self):
+        print("Change font size minus")
 
 
 

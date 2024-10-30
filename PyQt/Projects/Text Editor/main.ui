@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMenuBar::item:selected{
+                        color: white;
+                        background-color: #888888;
+                        } 
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -54,10 +61,17 @@
     <property name="title">
      <string>Appearance</string>
     </property>
+    <widget class="QMenu" name="menuChange_Font_Size">
+     <property name="title">
+      <string>Change Font Size</string>
+     </property>
+     <addaction name="actionIncrease_Font_Size"/>
+     <addaction name="actionDecrease_Font_Size"/>
+    </widget>
     <addaction name="actionSet_Dark_Mode"/>
     <addaction name="actionSet_Light_Mode"/>
     <addaction name="separator"/>
-    <addaction name="actionChange_Font_Size"/>
+    <addaction name="menuChange_Font_Size"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -135,17 +149,22 @@
     <string>Set Light Mode</string>
    </property>
   </action>
-  <action name="actionChange_Font_Size">
-   <property name="text">
-    <string>Change Font Size</string>
-   </property>
-  </action>
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionIncrease_Font_Size">
+   <property name="text">
+    <string>Increase Font Size</string>
+   </property>
+  </action>
+  <action name="actionDecrease_Font_Size">
+   <property name="text">
+    <string>Decrease Font Size</string>
    </property>
   </action>
  </widget>

@@ -1,1 +1,13 @@
-siema 
+QWidget{
+background-color: rgb(33, 33, 33);
+color: white;
+}
+
+QTextEdit{
+background-color: rgb(46, 46, 46)
+}
+
+QMenuBar::item:selected{
+color: black;
+}
+
