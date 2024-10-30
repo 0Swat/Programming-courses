@@ -9,6 +9,8 @@ class MainUI(QMainWindow):
         super(MainUI, self).__init__()
         loadUi('main.ui', self)
 
+        self.current_path = None
+
         self.actionNew.triggered.connect(self.NewFileFunction)
         self.actionOpen.triggered.connect(self.OpenFunction)
         self.actionSave.triggered.connect(self.SaveFunction)
@@ -25,16 +27,25 @@ class MainUI(QMainWindow):
     def NewFileFunction(self):
         self.textEdit.clear()
         self.setWindowTitle("Untitled")
+        self.current_path = None
 
     def OpenFunction(self):
         fname = QFileDialog.getOpenFileName(self, 'Open file', os.getcwd(), 'Text Files (*.txt)')
-        self.setWindowTitle(fname[0])
-        with open(fname[0], 'r') as f:
-            filetext = f.read()
-            self.textEdit.setText(filetext)
+        if fname[0]:
+            self.setWindowTitle(fname[0])
+            with open(fname[0], 'r') as f:
+                filetext = f.read()
+                self.textEdit.setText(filetext)
+            self.current_path = fname[0]
 
     def SaveFunction(self):
-        print("Save file")
+        if self.current_path is not None:
+            # save changes no dialog
+            filetext = self.textEdit.toPlainText()
+            with open(self.current_path, 'w') as f:
+                f.write(filetext)
+        else:
+            self.SaveAsFunction()
 
     def SaveAsFunction(self):
         print("Save file as")
