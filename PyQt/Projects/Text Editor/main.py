@@ -11,6 +11,8 @@ class MainUI(QMainWindow):
 
         self.current_path = None
         self.setWindowTitle("Untitled")
+        self.current_fontsize = 8
+        self.textEdit.setFontPointSize(self.current_fontsize)
 
         self.actionNew.triggered.connect(self.NewFileFunction)
         self.actionOpen.triggered.connect(self.OpenFunction)
@@ -94,10 +96,12 @@ class MainUI(QMainWindow):
         self.setStyleSheet("")
 
     def IncreaseFontSizeFunction(self):
-        print("Change font size plus")
+        self.current_fontsize += 1
+        self.textEdit.setFontPointSize(self.current_fontsize)
 
     def DecreaseFontSizeFunction(self):
-        print("Change font size minus")
+        self.current_fontsize -= 1
+        self.textEdit.setFontPointSize(self.current_fontsize)
 
 
 
