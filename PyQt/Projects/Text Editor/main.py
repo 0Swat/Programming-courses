@@ -23,7 +23,8 @@ class MainUI(QMainWindow):
         self.actionChange_Font_Size.triggered.connect(self.FontSizeFunction)
 
     def NewFileFunction(self):
-        print("New file")
+        self.textEdit.clear()
+        self.setWindowTitle("Untitled")
 
     def SaveFunction(self):
         print("Save file")
