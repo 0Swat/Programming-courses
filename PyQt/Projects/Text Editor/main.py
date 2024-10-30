@@ -1,8 +1,7 @@
+import os
 import sys
-from turtledemo.fractalcurves import CurvesTurtle
-
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 
 
 class MainUI(QMainWindow):
@@ -11,6 +10,7 @@ class MainUI(QMainWindow):
         loadUi('main.ui', self)
 
         self.actionNew.triggered.connect(self.NewFileFunction)
+        self.actionOpen.triggered.connect(self.OpenFunction)
         self.actionSave.triggered.connect(self.SaveFunction)
         self.actionSave_as.triggered.connect(self.SaveAsFunction)
         self.actionUndo.triggered.connect(self.UndoFunction)
@@ -25,6 +25,13 @@ class MainUI(QMainWindow):
     def NewFileFunction(self):
         self.textEdit.clear()
         self.setWindowTitle("Untitled")
+
+    def OpenFunction(self):
+        fname = QFileDialog.getOpenFileName(self, 'Open file', os.getcwd(), 'Text Files (*.txt)')
+        self.setWindowTitle(fname[0])
+        with open(fname[0], 'r') as f:
+            filetext = f.read()
+            self.textEdit.setText(filetext)
 
     def SaveFunction(self):
         print("Save file")
