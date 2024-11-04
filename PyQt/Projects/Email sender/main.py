@@ -10,7 +10,16 @@ class EmailSender(QMainWindow):
         self.pushButton.clicked.connect(self.SendButtonPushed)
 
     def SendButtonPushed(self):
-        send_email(recipient=self.lineEdit.text(), email=self.textEdit.toPlainText())
+        recipient = self.lineEdit.text()
+        email_content = self.textEdit.toPlainText()
+
+        if not recipient or not email_content:
+            print("Recipient or email content is empty")
+            return
+
+        print("Attempting to send email")
+        send_email(recipient=recipient, email=email_content)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
